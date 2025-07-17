@@ -9,7 +9,9 @@ const https = require("https")
 const extractJsonFromString = require("extract-json-from-string")
 const configPath = path.join(process.cwd(), "config.json")
 const {token, serverId, password, webhookURL, socketCount} = JSON.parse(fs.readFileSync(configPath, "utf8"))
-// aptal gpt kodlarınızı sikeris XD
+// https://www.itemsatis.com/profil/duckevils.html
+// cok daha ıyılerı ıcın 
+
 const guilds = {}
 let mfaToken = null
 const sessionCache = new Map()
@@ -22,7 +24,7 @@ const IDENTIFY = Buffer.from(
         d: {
             token: token,
             intents: 1,
-            properties: {os: "linux", browser: "hairo"},
+            properties: {os: "linux", browser: "duck.js"},
             guild_subscriptions: false,
             large_threshold: 0
         }
@@ -80,12 +82,12 @@ async function basla() {
     async function notifyWebhook(find) {
         const requestBody = {
             content: `*${vanity}* @everyone`,
-            username: "hairo never got fail",
+            username: "duckevils",
             avatar_url:
-          "https://cdn.discordapp.com/attachments/1378679960046272633/1395174058974249010/9fbbf41d277236641b3f5e710134709c_-_Kopya.jpg?ex=68797c98&is=68782b18&hm=df1cad0521f981fbeabe5cad34540a72ce551a8b16ade584b1a79a229eeb3c6b&",
+          "https://cdn.discordapp.com/avatars/1344021046432632883/1c5f3266df7c678503093eae0461895f.webp?size=1024",
             embeds: [
                 {
-                    title: "Vanity Sniper",
+                    title: "vanity sniper",
                     description: `\`\`\`${JSON.stringify(find)}\`\`\``,
                     color: 0x000000,
                     fields: [
@@ -101,8 +103,8 @@ async function basla() {
                         }
                     ],
                     footer: {
-                        text: `https://t.me/hairo4k | ${new Date().toLocaleString("tr-TR", {hour12: false})}`,
-                        icon_url: "https://cdn.discordapp.com/attachments/1378679960046272633/1395174058974249010/9fbbf41d277236641b3f5e710134709c_-_Kopya.jpg?ex=68797c98&is=68782b18&hm=df1cad0521f981fbeabe5cad34540a72ce551a8b16ade584b1a79a229eeb3c6b&"
+                        text: `https://t.me/duckevils | ${new Date().toLocaleString("tr-TR", {hour12: false})}`,
+                        icon_url: "https://cdn.discordapp.com/avatars/1344021046432632883/1c5f3266df7c678503093eae0461895f.webp?size=1024"
                     },
                     timestamp: new Date().toISOString()
                 }
@@ -169,7 +171,7 @@ async function basla() {
                             const body = `{"code":"${find}"}`
                             console.log(colors.red(`UPDATE: ${find} ON ${guildId} / ${new Date().toLocaleString("tr-TR", {hour12: false})}`))
                            
-                        for (let i = 0; i < 250; i++) { // bu prim yeterde artar sıze XDD
+                        for (let i = 0; i < 250; i++) { // kaldırın bunu 
                             void tlsSocket.write([`PATCH /api/v10/guilds/${serverId}/vanity-url HTTP/1.1`,`Host: canary.discord.com`, `X-Discord-MFA-Authorization: ${mfaToken}`,`Content-Length: ${body.length}`,`Authorization: ${token}`,`Content-Type: application/json`,`User-Agent: 0`,`X-Super-Properties: eyJvcyI6IkFuZHJvaWQiLCJicm93c2VyIjoiQW5kcm9pZCBDaHJvbWUiLCJkZXZpY2UiOiJBbmRyb2lkIiwic3lzdGVtX2xvY2FsZSI6InRyLVRSIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKExpbnV4OyBBbmRyb2lkIDYuMDsgTmV4dXMgNSBCdWlsZC9NUkE1OE4pIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzEuMC4wLjAgTW9iaWxlIFNhZmFyaS81MzcuMzYiLCJicm93c2VyX3ZlcnNpb24iOiIxMzEuMC4wLjAiLCJvc192ZXJzaW9uIjoiNi4wIiwicmVmZXJyZXIiOiJodHRwczovL2Rpc2NvcmQuY29tL2NoYW5uZWxzL0BtZS8xMzAzMDQ1MDIyNjQzNTIzNjU1IiwicmVmZXJyaW5nX2RvbWFpbiI6ImRpc2NvcmQuY29tIiwicmVmZXJyaW5nX2N1cnJlbnQiOiIiLCJyZWxlYXNlX2NoYW5uZWwiOiJzdGFibGUiLCJjbGllbnRfYnVpbGRfbnVtYmVyIjozNTU2MjQsImNsaWVudF9ldmVudF9zb3VyY2UiOm51bGwsImhhc19jbGllbnRfbW9kcyI6ZmFsc2V9=`,'', body].join('\r\n'));      
                         }
                             }
