@@ -10,7 +10,7 @@ const extractJsonFromString = require("extract-json-from-string")
 const configPath = path.join(process.cwd(), "config.json")
 const {token, serverId, password, webhookURL, socketCount} = JSON.parse(fs.readFileSync(configPath, "utf8"))
 // https://www.itemsatis.com/profil/duckevils.html
-// cok daha ıyılerı ıcın 
+// discord.gg/israil
 
 const guilds = {}
 let mfaToken = null
